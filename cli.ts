@@ -14,6 +14,11 @@ program
 .action((n1, n2) => console.log(Number(n1) + Number(n2)))
 
 program
+.command("multiply <n1> <n2>")
+.description("Multiply two numbers")
+.action((n1, n2) => console.log(Number(n1) * Number(n2)))
+
+program
 .command("joke")
 .description("Random joke")
 .action(async () => {
