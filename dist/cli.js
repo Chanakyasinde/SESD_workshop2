@@ -14,6 +14,14 @@ program
     .description("Multiply two numbers")
     .action((n1, n2) => console.log(Number(n1) * Number(n2)));
 program
+    .command("subtract <n1> <n2>")
+    .description("Subtract two numbers")
+    .action((n1, n2) => console.log(Number(n1) - Number(n2)));
+program
+    .command("division <n1> <n2>")
+    .description("Division two numbers")
+    .action((n1, n2) => console.log(Number(n1) / Number(n2)));
+program
     .command("joke")
     .description("Random joke")
     .action(async () => {
