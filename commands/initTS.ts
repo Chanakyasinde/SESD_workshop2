@@ -26,4 +26,3 @@ class init_TS {
         execSync(command, {stdio: "inherit"})
     }
 }
-

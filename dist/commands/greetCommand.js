@@ -1,3 +1,5 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 const chalk = require("chalk");
 class Greet_Command {
     constructor(program) {

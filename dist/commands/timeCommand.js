@@ -1,0 +1,22 @@
+const chalk = require("chalk");
+class TimeCommand {
+    constructor(program) {
+        this.program = program;
+    }
+    register() {
+        this.program
+            .command("time")
+            .action(() => this.showTime());
+    }
+    showTime() {
+        const now = new Date();
+        const time = now.toLocaleTimeString("en-IN", {
+            hour: "2-digit",
+            minute: "2-digit",
+            second: "2-digit",
+            hour12: true
+        });
+        console.log(chalk.cyan(`Time: ${time}`));
+    }
+}
+module.exports = TimeCommand;

@@ -20,3 +20,4 @@ class Greet_Command {
 }
 
 module.exports = Greet_Command;
+export {};
