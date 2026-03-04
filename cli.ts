@@ -1,43 +1,13 @@
 #!/usr/bin/env node
-const { Command } = require('commander')
-const axios = require("axios")
 
-const program = new Command();
+const cli_engine = require("./cli_engine/cli_engine")
+const greet_command = require("./commands/greetCommand")
+const add_command = require("./commands/addCommand")
+const subtract_command = require("./commands/subtractCommand")
+const joke_command = require("./commands/jokeCommand")
 
-program
-.command("greet <name>")
-.action((name) => console.log(`Hello ${name}`))
+const engine = new cli_engine()
 
-program
-.command("add <n1> <n2>")
-.description("Add two numbers")
-.action((n1, n2) => console.log(Number(n1) + Number(n2)))
+engine.registerCommands([greet_command, add_command, subtract_command, joke_command])
 
-program
-.command("multiply <n1> <n2>")
-.description("Multiply two numbers")
-.action((n1, n2) => console.log(Number(n1) * Number(n2)))
-
-program
-.command("subtract <n1> <n2>")
-.description("Subtract two numbers")
-.action((n1, n2) => console.log(Number(n1) - Number(n2)))
-
-program
-.command("division <n1> <n2>")
-.description("Division two numbers")
-.action((n1, n2) => console.log(Number(n1) / Number(n2)))
-
-program
-.command("joke")
-.description("Random joke")
-.action(async () => {
-    try {
-        const res = await axios.get(`https://official-joke-api.appspot.com/random_joke`)
-        console.log(res.setup)
-    } catch(err) {
-        console.log(err)
-    }
-})
-
-program.parse()
+engine.run()
