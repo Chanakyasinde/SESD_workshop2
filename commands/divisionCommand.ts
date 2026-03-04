@@ -1,3 +1,5 @@
+const chalk = require("chalk");
+
 class DivisionCommand {
     program;
 
@@ -7,13 +9,24 @@ class DivisionCommand {
 
     register() {
         this.program
-        .command("divide <n1> <n2>")
-        .action((n1, n2) => this.divide(n1, n2))
+            .command("divide <n1> <n2>")
+            .description("Divide first number by second")
+            .action((n1, n2) => this.divide(n1, n2))
     }
 
     divide(n1, n2) {
-        console.log(Number(n1) / Number(n2))
+        if (isNaN(Number(n1)) || isNaN(Number(n2))) {
+            console.log(chalk.red("Error: Please enter valid numbers"));
+            return;
+        }
+        if (Number(n2) === 0) {
+            console.log(chalk.red("Error: Cannot divide by zero"));
+            return;
+        }
+        console.log(chalk.green("Result: " + (Number(n1) / Number(n2))));
     }
 }
 
 module.exports = DivisionCommand;
+
+export {};

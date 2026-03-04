@@ -1,3 +1,6 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const chalk = require("chalk");
 class AddCommand {
     constructor(program) {
         this.program = program;
@@ -5,10 +8,15 @@ class AddCommand {
     register() {
         this.program
             .command('add <n1> <n2>')
+            .description("Add two numbers together")
             .action((n1, n2) => this.add(n1, n2));
     }
     add(n1, n2) {
-        console.log(Number(n1) + Number(n2));
+        if (isNaN(Number(n1)) || isNaN(Number(n2))) {
+            console.log(chalk.red("Error: Please enter valid numbers"));
+            return;
+        }
+        console.log(chalk.green("Result: " + (Number(n1) + Number(n2))));
     }
 }
 module.exports = AddCommand;

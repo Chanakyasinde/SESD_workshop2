@@ -10,11 +10,12 @@ class PasswordCommand {
 
     register() {
         this.program
-        .command("password <length>")
-        .action((length) => this.generatePassword(length));
+            .command("password <length>")
+            .description("Generate a random secure password")
+            .action((length, options) => this.generatePassword(length, options));
     }
 
-    generatePassword(length) {
+    generatePassword(length, options) {
         const passwordLength = Number(length);
 
         if (isNaN(passwordLength) || passwordLength <= 0) {
@@ -22,8 +23,11 @@ class PasswordCommand {
             return;
         }
 
-        const characters =
-            "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+";
+        let characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+        if (options.symbols !== false) {
+            characters += "!@#$%^&*()_+";
+        }
 
         let password = "";
 
@@ -40,4 +44,4 @@ class PasswordCommand {
 
 module.exports = PasswordCommand;
 
-export {};
+export { };

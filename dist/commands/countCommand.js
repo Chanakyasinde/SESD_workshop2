@@ -8,6 +8,7 @@ class CountCommand {
     register() {
         this.program
             .command("count <text>")
+            .description("Count words and characters in a text")
             .action((text) => this.countText(text));
     }
     countText(text) {

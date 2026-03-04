@@ -9,8 +9,9 @@ class TimeCommand {
 
     register() {
         this.program
-        .command("time")
-        .action(() => this.showTime())
+            .command("time")
+            .description("Display the current time")
+            .action(() => this.showTime())
     }
 
     showTime() {
@@ -28,3 +29,5 @@ class TimeCommand {
 }
 
 module.exports = TimeCommand;
+
+export { };

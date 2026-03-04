@@ -9,8 +9,9 @@ class CountCommand {
 
     register() {
         this.program
-        .command("count <text>")
-        .action((text) => this.countText(text));
+            .command("count <text>")
+            .description("Count words and characters in a text")
+            .action((text) => this.countText(text));
     }
 
     countText(text) {
@@ -25,4 +26,4 @@ class CountCommand {
 
 module.exports = CountCommand;
 
-export {};
+export { };

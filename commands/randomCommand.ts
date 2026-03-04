@@ -9,8 +9,9 @@ class RandomCommand {
 
     register() {
         this.program
-        .command("random <min> <max>")
-        .action((min, max) => this.generate(min, max));
+            .command("random <min> <max>")
+            .description("Generate a random number between min and max")
+            .action((min, max) => this.generate(min, max));
     }
 
     generate(min, max) {
@@ -29,4 +30,4 @@ class RandomCommand {
 }
 
 module.exports = RandomCommand;
-export {};
+export { };

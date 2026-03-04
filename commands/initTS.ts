@@ -1,4 +1,5 @@
 const { execSync } = require("child_process")
+const chalk = require("chalk");
 
 class init_TS {
     program;
@@ -10,6 +11,7 @@ class init_TS {
     register() {
         this.program
         .command("init_ts <folderName>")
+        .description("Initialize a new TypeScript project with all dependencies")
         .action((folderName) => this.initializeTS(folderName))
     }
 
@@ -26,3 +28,7 @@ class init_TS {
         execSync(command, {stdio: "inherit"})
     }
 }
+
+module.exports = init_TS;
+
+export {};

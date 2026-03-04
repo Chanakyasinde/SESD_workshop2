@@ -9,6 +9,7 @@ class JokeCommand {
     register() {
         this.program
             .command("joke")
+            .description("Fetch a random joke from the internet")
             .action(() => this.joke());
     }
     async joke() {

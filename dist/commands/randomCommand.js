@@ -8,6 +8,7 @@ class RandomCommand {
     register() {
         this.program
             .command("random <min> <max>")
+            .description("Generate a random number between min and max")
             .action((min, max) => this.generate(min, max));
     }
     generate(min, max) {

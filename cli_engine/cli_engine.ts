@@ -5,6 +5,8 @@ class CLI_Engine {
 
     constructor() {
         this.program = new Command()
+        this.program.version("1.0.0")
+        this.program.description("MyCLI - A custom command line tool built with Node + TypeScript")
     }
 
     registerCommands(commands) {

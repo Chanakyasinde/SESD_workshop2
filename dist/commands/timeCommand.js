@@ -1,3 +1,5 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 const chalk = require("chalk");
 class TimeCommand {
     constructor(program) {
@@ -6,6 +8,7 @@ class TimeCommand {
     register() {
         this.program
             .command("time")
+            .description("Display the current time")
             .action(() => this.showTime());
     }
     showTime() {

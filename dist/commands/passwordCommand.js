@@ -9,15 +9,19 @@ class PasswordCommand {
     register() {
         this.program
             .command("password <length>")
-            .action((length) => this.generatePassword(length));
+            .description("Generate a random secure password")
+            .action((length, options) => this.generatePassword(length, options));
     }
-    generatePassword(length) {
+    generatePassword(length, options) {
         const passwordLength = Number(length);
         if (isNaN(passwordLength) || passwordLength <= 0) {
             console.log(chalk.red("Please enter a valid number for password length"));
             return;
         }
-        const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+";
+        let characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+        if (options.symbols !== false) {
+            characters += "!@#$%^&*()_+";
+        }
         let password = "";
         const randomBytes = crypto.randomBytes(passwordLength);
         for (let i = 0; i < passwordLength; i++) {

@@ -9,6 +9,7 @@ class PortCheckCommand {
     register() {
         this.program
             .command("port-check <port>")
+            .description("Check if a port is available or in use")
             .action((port) => this.checkPort(port));
     }
     checkPort(port) {
