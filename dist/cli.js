@@ -9,6 +9,7 @@ const division_command = require("./commands/divisionCommand");
 const time_command = require("./commands/timeCommand");
 const random_command = require("./commands/randomCommand");
 const count_command = require("./commands/countCommand");
+const password_command = require("./commands/passwordCommand");
 const engine = new cli_engine();
-engine.registerCommands([greet_command, add_command, subtract_command, joke_command, multiply_command, division_command, time_command, random_command, count_command]);
+engine.registerCommands([greet_command, add_command, subtract_command, joke_command, multiply_command, division_command, time_command, random_command, count_command, password_command]);
 engine.run();
