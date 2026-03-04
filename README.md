@@ -82,11 +82,11 @@ mycli joke
 
 # Fetch GitHub user info
 mycli github octocat
-# Output: Name, Bio, Repos, Followers, Profile URL
+# Output: Name, Profile URL.
 
 # Get weather for a city
 mycli weather London
-# Output: Temperature, Condition, Humidity, Wind Speed
+# Output: Temperature
 
 # Generate a password
 mycli password 16
