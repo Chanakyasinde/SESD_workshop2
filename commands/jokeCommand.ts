@@ -1,4 +1,5 @@
 const axios = require("axios");
+const chalk = require("chalk");
 
 class JokeCommand {
     program;
@@ -16,8 +17,8 @@ class JokeCommand {
     async joke() {
         try {
             const res = await axios.get(`https://official-joke-api.appspot.com/random_joke`);
-            console.log(res.data.setup)
-            console.log(res.data.punchline)
+            console.log(chalk.green(res.data.setup))
+            console.log(chalk.yellow(res.data.punchline))
         } catch(err) {
             console.log(err)
         }
@@ -25,3 +26,5 @@ class JokeCommand {
 }
 
 module.exports = JokeCommand;
+
+export {};
